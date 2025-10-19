@@ -1,92 +1,92 @@
-spring:
-  profiles:
-    active: local
----
-# Default MongoDB configuration (used unless overridden by a profile)
-spring:
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: local
-
----
-# Local environment
-spring:
-  config:
-    activate:
-      on-profile: local
-  data:
-    mongodb:
-      database: local
-
----
-# Non-production / staging environment
-spring:
-  config:
-    activate:
-      on-profile: non-prod
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: nonprod_db
-
----
-# Production environment
-spring:
-  config:
-    activate:
-      on-profile: prod
-  data:
-    mongodb:
-      host: prod-db-host
-      port: 27017
-      database: prod_db
-      username: yourProdUsername
-      password: yourProdPassword
-
-
-
-
-
-
-
 #spring:
 #  profiles:
 #    active: local
 #---
+## Default MongoDB configuration (used unless overridden by a profile)
 #spring:
-#  config:
-#    activate:
-#      on-profile:
-#        -local
-#
 #  data:
 #    mongodb:
 #      host: localhost
 #      port: 27017
 #      database: local
+#
 #---
+## Local environment
 #spring:
 #  config:
 #    activate:
-#      on-profile:
-#        -non-prod
+#      on-profile: local
+#  data:
+#    mongodb:
+#      database: local
 #
+#---
+## Non-production / staging environment
+#spring:
+#  config:
+#    activate:
+#      on-profile: non-prod
 #  data:
 #    mongodb:
 #      host: localhost
 #      port: 27017
-#      database: local
+#      database: nonprod_db
+#
 #---
+## Production environment
 #spring:
 #  config:
 #    activate:
 #      on-profile: prod
-#
 #  data:
 #    mongodb:
-#      host: localhost
+#      host: prod-db-host
 #      port: 27017
-#      database: local
+#      database: prod_db
+#      username: yourProdUsername
+#      password: yourProdPassword
+
+
+
+
+
+
+
+spring:
+  profiles:
+    active: local
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        -local
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+---
+spring:
+  config:
+    activate:
+      on-profile:
+        -non-prod
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: local
